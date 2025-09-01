@@ -1,0 +1,16 @@
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\bin\Debug\net8.0-windows\TrabalhoV01.exe
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\bin\Debug\net8.0-windows\TrabalhoV01.deps.json
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\bin\Debug\net8.0-windows\TrabalhoV01.runtimeconfig.json
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\bin\Debug\net8.0-windows\TrabalhoV01.dll
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\bin\Debug\net8.0-windows\TrabalhoV01.pdb
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.Form1.resources
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.csproj.GenerateResource.cache
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.AssemblyInfoInputs.cache
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.AssemblyInfo.cs
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.csproj.CoreCompileInputs.cache
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.dll
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\refint\TrabalhoV01.dll
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.pdb
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\TrabalhoV01.genruntimeconfig.cache
+C:\Users\greze\OneDrive\Documentos\estudos Coding\C#\Console\TrabalhoV01\obj\Debug\net8.0-windows\ref\TrabalhoV01.dll

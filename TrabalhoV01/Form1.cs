@@ -24,9 +24,9 @@ namespace TrabalhoV01
         {
             foreach (var c in corpos)
             {
-                e.Graphics.FillEllipse(Brushes.Blue,
+                e.Graphics.FillEllipse(Brushes.White,
                     (float)c.PosX, (float)c.PosY,
-                    c.Raio * 2, c.Raio * 2);
+                    c.Raio * 3, c.Raio * 3);
             }
         }
 
@@ -70,12 +70,11 @@ namespace TrabalhoV01
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            double G = 0.10; // constante gravitacional "ajustada" para simulação 2D
+            double G = 50; // constante gravitacional "ajustada" para simulação 2D
 
-            // Lista para armazenar acelerações de cada corpo
             var aceleracoes = new (double ax, double ay)[corpos.Count];
 
-            // Calcula forças gravitacionais (O(n²))
+            // 1) Gravidade entre todos os corpos
             for (int i = 0; i < corpos.Count; i++)
             {
                 double ax = 0, ay = 0;
@@ -85,24 +84,21 @@ namespace TrabalhoV01
 
                     double dx = corpos[j].PosX - corpos[i].PosX;
                     double dy = corpos[j].PosY - corpos[i].PosY;
-                    double dist2 = dx * dx + dy * dy + 1; // +1 evita divisão por zero
+                    double dist2 = dx * dx + dy * dy + 1;
                     double dist = Math.Sqrt(dist2);
 
-                    // Força gravitacional
                     double F = G * corpos[i].Massa * corpos[j].Massa / dist2;
 
-                    // Direção normalizada
                     double fx = F * dx / dist;
                     double fy = F * dy / dist;
 
-                    // a = F / m
                     ax += fx / corpos[i].Massa;
                     ay += fy / corpos[i].Massa;
                 }
                 aceleracoes[i] = (ax, ay);
             }
 
-            // Atualiza velocidade e posição
+            // 2) Atualiza velocidades e posições
             for (int i = 0; i < corpos.Count; i++)
             {
                 corpos[i].VelX += aceleracoes[i].ax;
@@ -111,7 +107,42 @@ namespace TrabalhoV01
                 corpos[i].PosY += corpos[i].VelY;
             }
 
-            panel1.Invalidate(); // força redesenho
+            // 3) Tratamento de colisões
+            for (int i = 0; i < corpos.Count; i++)
+            {
+                for (int j = i + 1; j < corpos.Count; j++)
+                {
+                    double dx = corpos[j].PosX - corpos[i].PosX;
+                    double dy = corpos[j].PosY - corpos[i].PosY;
+                    double dist = Math.Sqrt(dx * dx + dy * dy);
+
+                    if (dist < corpos[i].Raio + corpos[j].Raio) // colisão detectada
+                    {
+                        Corpo maior = corpos[i].Massa >= corpos[j].Massa ? corpos[i] : corpos[j];
+                        Corpo menor = maior == corpos[i] ? corpos[j] : corpos[i];
+
+                        // Conservação do momento
+                        double massaTotal = maior.Massa + menor.Massa;
+                        double velXfinal = (maior.Massa * maior.VelX + menor.Massa * menor.VelX) / massaTotal;
+                        double velYfinal = (maior.Massa * maior.VelY + menor.Massa * menor.VelY) / massaTotal;
+
+                        // Atualiza o corpo maior
+                        maior.Massa = massaTotal;
+                        maior.VelX = velXfinal;
+                        maior.VelY = velYfinal;
+
+                        // Raio cresce com a raiz da massa
+                        maior.Raio = (int)(Math.Sqrt(maior.Massa) * 2);
+
+                        // Remove o corpo menor
+                        corpos.Remove(menor);
+
+                        break; // evita problemas na lista
+                    }
+                }
+            }
+
+            panel1.Invalidate();
         }
 
     }

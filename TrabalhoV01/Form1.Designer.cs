@@ -40,15 +40,16 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(15, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(949, 592);
+            panel1.Size = new Size(1119, 693);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
             // btnGerar
             // 
-            btnGerar.Location = new Point(1007, 505);
+            btnGerar.Location = new Point(1163, 462);
             btnGerar.Name = "btnGerar";
             btnGerar.Size = new Size(117, 46);
             btnGerar.TabIndex = 1;
@@ -58,7 +59,7 @@
             // 
             // btnIniciar
             // 
-            btnIniciar.Location = new Point(1163, 505);
+            btnIniciar.Location = new Point(1163, 390);
             btnIniciar.Name = "btnIniciar";
             btnIniciar.Size = new Size(117, 46);
             btnIniciar.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             // btnSalvarAtual
             // 
-            btnSalvarAtual.Location = new Point(1163, 584);
+            btnSalvarAtual.Location = new Point(1163, 595);
             btnSalvarAtual.Name = "btnSalvarAtual";
             btnSalvarAtual.Size = new Size(117, 46);
             btnSalvarAtual.TabIndex = 4;
@@ -78,7 +79,7 @@
             // 
             // btnSalvarConfig
             // 
-            btnSalvarConfig.Location = new Point(1007, 584);
+            btnSalvarConfig.Location = new Point(1163, 526);
             btnSalvarConfig.Name = "btnSalvarConfig";
             btnSalvarConfig.Size = new Size(117, 46);
             btnSalvarConfig.TabIndex = 3;
@@ -112,6 +113,7 @@
             Controls.Add(btnGerar);
             Controls.Add(panel1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);

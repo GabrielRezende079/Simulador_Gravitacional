@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\greze\\OneDrive\\Documentos\\estudos Coding\\C#\\Console\\TrabalhoV01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|c:\\users\\greze\\onedrive\\documentos\\estudos coding\\c#\\console\\trabalhov01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|c:\\users\\greze\\onedrive\\documentos\\estudos coding\\c#\\console\\trabalhov01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|c:\\users\\greze\\onedrive\\documentos\\estudos coding\\c#\\console\\trabalhov01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,29 +18,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\greze\\OneDrive\\Documentos\\estudos Coding\\C#\\Console\\TrabalhoV01\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\greze\\OneDrive\\Documentos\\estudos Coding\\C#\\Console\\TrabalhoV01\\Form1.cs [Projeto]*",
-              "RelativeToolTip": "Form1.cs [Projeto]*",
+              "ToolTip": "C:\\Users\\greze\\OneDrive\\Documentos\\estudos Coding\\C#\\Console\\TrabalhoV01\\Form1.cs [Projeto]",
+              "RelativeToolTip": "Form1.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T23:40:11.346Z",
               "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\greze\\OneDrive\\Documentos\\estudos Coding\\C#\\Console\\TrabalhoV01\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\greze\\OneDrive\\Documentos\\estudos Coding\\C#\\Console\\TrabalhoV01\\Form1.cs*",
-              "RelativeToolTip": "Form1.cs*",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCMAAAAiAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\greze\\OneDrive\\Documentos\\estudos Coding\\C#\\Console\\TrabalhoV01\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwB0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T22:45:28.889Z",
               "EditorCaption": ""

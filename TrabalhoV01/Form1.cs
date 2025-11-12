@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrabalhoV01
@@ -7,9 +10,9 @@ namespace TrabalhoV01
     public partial class Form1 : Form
     {
         private Universo universo = new Universo();
-        private Persistencia persistencia = new PersistenciaTxt();
+        private PersistenciaMySql persistencia = new PersistenciaMySql();
         private int contadorIteracoes = 0;
-        private string? caminhoIteracoes = null; // nullable
+        private bool simulando = false;
 
         public Form1()
         {
@@ -18,18 +21,22 @@ namespace TrabalhoV01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Nada por enquanto
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            foreach (var c in universo.Corpos)
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Cria uma cópia thread-safe da lista
+            List<Corpo> corposCopia = universo.Corpos.ToList();
+
+            foreach (var c in corposCopia)
             {
-                e.Graphics.FillEllipse(Brushes.White,
-                    (float)(c.PosX - c.Raio),  // centralizar
+                e.Graphics.FillEllipse(Brushes.LightBlue,
+                    (float)(c.PosX - c.Raio),
                     (float)(c.PosY - c.Raio),
-                    (float)(c.Raio * 5),       // diâmetro
-                    (float)(c.Raio * 5));
+                    (float)(c.Raio * 2),
+                    (float)(c.Raio * 2));
             }
         }
 
@@ -37,77 +44,110 @@ namespace TrabalhoV01
         {
             universo.Limpar();
             Random rnd = new Random();
+            int qtd = 100;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < qtd; i++)
             {
                 double massa = rnd.Next(5, 20);
-                double densidade = rnd.Next(1, 5); // corpos maiores se densidade for menor
+                double densidade = rnd.Next(1, 5);
                 double posX = rnd.Next(50, panel1.Width - 50);
                 double posY = rnd.Next(50, panel1.Height - 50);
                 double velX = rnd.Next(-2, 3);
                 double velY = rnd.Next(-2, 3);
 
                 universo.AdicionarCorpo(new Corpo(
-                    $"Corpo{i}", massa, densidade, posX, posY, velX, velY
+                    0, $"Corpo{i}", massa, densidade, posX, posY, velX, velY
                 ));
             }
 
+            contadorIteracoes = 0;
             panel1.Invalidate();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            if (!simulando)
+            {
+                timer1.Start();
+                simulando = true;
+            }
+            else
+            {
+                timer1.Stop();
+                simulando = false;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Arquivo Texto|*.txt";
-            if (sfd.ShowDialog() == DialogResult.OK)
+            if (universo.Corpos.Count == 0)
             {
-                persistencia.SalvarConfiguracao(universo.Corpos, sfd.FileName, iteracoes: 1000, tempo: timer1.Interval);
-                MessageBox.Show("Configuração inicial salva com sucesso!");
+                MessageBox.Show("Não há corpos para salvar! Gere corpos primeiro.");
+                return;
+            }
+
+            try
+            {
+                persistencia.SalvarConfiguracao(universo.Corpos, contadorIteracoes, timer1.Interval);
+                MessageBox.Show("Configuração inicial salva no MySQL!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao salvar configuração: {ex.Message}");
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Arquivo Texto|*.txt";
-            if (sfd.ShowDialog() == DialogResult.OK)
+            MessageBox.Show("As iterações agora são salvas automaticamente no banco MySQL!");
+        }
+
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
+            try
             {
-                contadorIteracoes = 0;
-                caminhoIteracoes = sfd.FileName;
-                MessageBox.Show("Arquivo para salvar iterações definido!");
+                await Task.Run(() => universo.Atualizar());
+                panel1.Invalidate();
+                contadorIteracoes++;
+                await Task.Run(() => persistencia.SalvarIteracao(universo.Corpos, contadorIteracoes));
+            }
+            catch (Exception ex)
+            {
+                timer1.Stop();
+                simulando = false;
+                MessageBox.Show($"Erro durante a simulação: {ex.Message}");
             }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Arquivo Texto|*.txt";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            try
             {
-                universo.Limpar();
-                foreach (var corpo in persistencia.CarregarConfiguracao(ofd.FileName))
+                if (simulando)
                 {
-                    universo.AdicionarCorpo(corpo);
+                    timer1.Stop();
+                    simulando = false;
                 }
+
+                universo.Limpar();
+                var corpos = persistencia.CarregarUltimaConfiguracao();
+
+                if (corpos.Count == 0)
+                {
+                    MessageBox.Show("Não há configurações salvas no banco de dados!");
+                    return;
+                }
+
+                foreach (var corpo in corpos)
+                    universo.AdicionarCorpo(corpo);
+
+                contadorIteracoes = 0;
                 panel1.Invalidate();
-                MessageBox.Show("Configuração carregada com sucesso!");
+                MessageBox.Show("Última configuração carregada do banco MySQL!");
             }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            universo.Atualizar();
-            panel1.Invalidate();
-
-            contadorIteracoes++;
-            if (!string.IsNullOrEmpty(caminhoIteracoes))
+            catch (Exception ex)
             {
-                persistencia.SalvarIteracao(universo.Corpos, caminhoIteracoes, contadorIteracoes);
+                MessageBox.Show($"Erro ao carregar configuração: {ex.Message}");
             }
         }
     }

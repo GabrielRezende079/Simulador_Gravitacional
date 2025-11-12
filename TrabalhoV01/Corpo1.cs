@@ -2,8 +2,11 @@
 
 namespace TrabalhoV01
 {
+    // Representa um corpo celeste com propriedades físicas e dinâmicas
     public class Corpo
     {
+        // Propriedades do corpo
+        public int Id { get; set; }
         public string Nome { get; set; }
         public double Massa { get; set; }
         public double Densidade { get; set; }
@@ -26,9 +29,11 @@ namespace TrabalhoV01
             }
         }
 
-        public Corpo(string nome, double massa, double densidade,
-                     double posX, double posY, double velX, double velY)
+        // Construtor para inicializar um corpo com suas propriedades
+        public Corpo(int id, string nome, double massa, double densidade,
+                double posX, double posY, double velX, double velY)
         {
+            Id = id;
             Nome = nome;
             Massa = massa;
             Densidade = densidade;

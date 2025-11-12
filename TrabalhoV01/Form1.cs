@@ -13,6 +13,7 @@ namespace TrabalhoV01
         private PersistenciaMySql persistencia = new PersistenciaMySql();
         private int contadorIteracoes = 0;
         private bool simulando = false;
+        private const int INTERVALO_SALVAMENTO = 20; // Salva a cada 50 iterações
 
         public Form1()
         {
@@ -99,7 +100,10 @@ namespace TrabalhoV01
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("As iterações agora são salvas automaticamente no banco MySQL!");
+            MessageBox.Show($"As iterações são salvas automaticamente a cada {INTERVALO_SALVAMENTO} passos!\n\n" +
+                          $"Iterações totais: {contadorIteracoes}\n" +
+                          $"Iterações salvas: {contadorIteracoes / INTERVALO_SALVAMENTO}\n" +
+                          $"Corpos ativos: {universo.Corpos.Count}");
         }
 
         private async void timer1_Tick(object sender, EventArgs e)
@@ -109,7 +113,18 @@ namespace TrabalhoV01
                 await Task.Run(() => universo.Atualizar());
                 panel1.Invalidate();
                 contadorIteracoes++;
-                await Task.Run(() => persistencia.SalvarIteracao(universo.Corpos, contadorIteracoes));
+
+                // Salva apenas a cada 50 iterações
+                if (contadorIteracoes % INTERVALO_SALVAMENTO == 0)
+                {
+                    await Task.Run(() => persistencia.SalvarIteracao(universo.Corpos, contadorIteracoes));
+                    // Opcional: mostrar no título ou em um label
+                    this.Text = $"Simulador - Iteração: {contadorIteracoes} (Salvo)";
+                }
+                else
+                {
+                    this.Text = $"Simulador - Iteração: {contadorIteracoes}";
+                }
             }
             catch (Exception ex)
             {

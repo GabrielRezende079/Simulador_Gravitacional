@@ -7,7 +7,7 @@ namespace TrabalhoV01
     public class Universo
     {
         public List<Corpo> Corpos { get; private set; } = new List<Corpo>();
-        private double G = 25.0;
+        private double G = 6;
         private double scaleFactor = 1.0;
         private int proximoId = 0;
         private readonly object lockObj = new object(); // Para thread-safety

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace TrabalhoV01
 {
@@ -13,13 +14,20 @@ namespace TrabalhoV01
         private PersistenciaMySql persistencia = new PersistenciaMySql();
         private int contadorIteracoes = 0;
         private bool simulando = false;
-        private const int INTERVALO_SALVAMENTO = 20; // Salva a cada 50 iterações
+        private const int INTERVALO_SALVAMENTO = 50; // Salva a cada 50 iterações
 
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
+public Form1()
+{
+    InitializeComponent();
+    this.DoubleBuffered = true; // ativa no próprio formulário
+    EnableDoubleBuffering(panel1); // ativa via reflexão no painel
+}
+private void EnableDoubleBuffering(Panel panel)
+{
+    typeof(Panel).InvokeMember("DoubleBuffered",
+        BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+        null, panel, new object[] { true });
+}
         private void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -41,29 +49,37 @@ namespace TrabalhoV01
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            universo.Limpar();
-            Random rnd = new Random();
-            int qtd = 100;
+  private void button1_Click(object sender, EventArgs e)
+{
+    universo.Limpar();
+    Random rnd = new Random();
 
-            for (int i = 0; i < qtd; i++)
-            {
-                double massa = rnd.Next(5, 20);
-                double densidade = rnd.Next(1, 5);
-                double posX = rnd.Next(50, panel1.Width - 50);
-                double posY = rnd.Next(50, panel1.Height - 50);
-                double velX = rnd.Next(-2, 3);
-                double velY = rnd.Next(-2, 3);
+    // usa os valores vindos da interface
+    int qtd = (int)numQtdCorpos.Value;
+    double massaBase = (double)numMassa.Value;
 
-                universo.AdicionarCorpo(new Corpo(
-                    0, $"Corpo{i}", massa, densidade, posX, posY, velX, velY
-                ));
-            }
+    for (int i = 0; i < qtd; i++)
+    {
+        // pequenas variações aleatórias de massa e densidade
+        double massa = massaBase + rnd.NextDouble() * massaBase * 0.5; // ±50%
+        double densidade = rnd.Next(1, 5);
 
-            contadorIteracoes = 0;
-            panel1.Invalidate();
-        }
+        double posX = rnd.Next(50, panel1.Width - 50);
+        double posY = rnd.Next(50, panel1.Height - 50);
+        double velX = rnd.Next(-2, 3);
+        double velY = rnd.Next(-2, 3);
+
+        universo.AdicionarCorpo(new Corpo(
+            0, $"Corpo{i}", massa, densidade, posX, posY, velX, velY
+        ));
+    }
+
+    contadorIteracoes = 0;
+    panel1.Invalidate(false);
+
+    MessageBox.Show($"{qtd} corpos gerados com massa média ~{massaBase:F1}", 
+        "Geração concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+}
 
         private void button2_Click(object sender, EventArgs e)
         {

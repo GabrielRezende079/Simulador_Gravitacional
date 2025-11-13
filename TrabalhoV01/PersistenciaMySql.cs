@@ -7,7 +7,7 @@ namespace TrabalhoV01
 {
     public class PersistenciaMySql
     {
-        private readonly string connStr = "Server=localhost;Database=simulador;Uid=root;Pwd=C@rros079;";
+        private readonly string connStr = "Server=localhost;Database=simulador;Uid=root;Pwd=9955114488;";
 
         public void SalvarConfiguracao(List<Corpo> corpos, int iteracoes, int intervalo)
         {

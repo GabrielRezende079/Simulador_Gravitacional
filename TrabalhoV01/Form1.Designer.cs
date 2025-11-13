@@ -2,6 +2,11 @@
 {
     partial class Form1
     {
+        private Label qtdCorposLabel;
+private Label massaLabel;
+private NumericUpDown numQtdCorpos;
+private NumericUpDown numMassa;
+
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -28,6 +33,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             btnGerar = new Button();
@@ -36,7 +42,45 @@
             btnSalvarConfig = new Button();
             btnCarregar = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            qtdCorposLabel = new Label();
+            massaLabel = new Label();
+            numQtdCorpos = new NumericUpDown();
+            numMassa = new NumericUpDown();
             SuspendLayout();
+                // 
+// qtdCorposLabel
+// 
+qtdCorposLabel.AutoSize = true;
+qtdCorposLabel.Location = new Point(1163, 80);
+qtdCorposLabel.Name = "qtdCorposLabel";
+qtdCorposLabel.Size = new Size(125, 20);
+qtdCorposLabel.Text = "Quantidade corpos:";
+// 
+// numQtdCorpos
+// 
+numQtdCorpos.Location = new Point(1163, 105);
+numQtdCorpos.Minimum = 1;
+numQtdCorpos.Maximum = 1000;
+numQtdCorpos.Value = 100;
+numQtdCorpos.Name = "numQtdCorpos";
+numQtdCorpos.Size = new Size(117, 27);
+// 
+// massaLabel
+// 
+massaLabel.AutoSize = true;
+massaLabel.Location = new Point(1163, 150);
+massaLabel.Name = "massaLabel";
+massaLabel.Size = new Size(110, 20);
+massaLabel.Text = "Massa média:";
+// 
+// numMassa
+// 
+numMassa.Location = new Point(1163, 175);
+numMassa.Minimum = 1;
+numMassa.Maximum = 100;
+numMassa.Value = 10;
+numMassa.Name = "numMassa";
+numMassa.Size = new Size(117, 27);
             // 
             // panel1
             // 
@@ -112,6 +156,21 @@
             Controls.Add(btnIniciar);
             Controls.Add(btnGerar);
             Controls.Add(panel1);
+            Controls.Add(qtdCorposLabel);
+            Controls.Add(numQtdCorpos);
+            Controls.Add(massaLabel);
+            Controls.Add(numMassa);
+// numQtdCorpos
+numQtdCorpos.Minimum = 1;
+numQtdCorpos.Maximum = 10000;
+numQtdCorpos.Value = 100;
+
+// numMassa
+numMassa.Minimum = 1;
+numMassa.Maximum = 10000;
+numMassa.DecimalPlaces = 1;
+numMassa.Value = 10;
+
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

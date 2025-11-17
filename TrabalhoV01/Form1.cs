@@ -95,7 +95,7 @@ private void EnableDoubleBuffering(Panel panel)
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // Salvar Configuração Atual
         {
             if (universo.Corpos.Count == 0)
             {

@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|c:\\users\\greze\\documents\\meus proj\\simulador_gravitacional\\trabalhov01\\universo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:universo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|c:\\users\\greze\\documents\\meus proj\\simulador_gravitacional\\trabalhov01\\persistenciamysql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:persistenciamysql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|c:\\users\\greze\\documents\\meus proj\\simulador_gravitacional\\trabalhov01\\universo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|solutionrelative:universo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{19052EAB-9414-4A43-87F7-FA407FA80B9A}|TrabalhoV01.csproj|c:\\users\\greze\\documents\\meus proj\\simulador_gravitacional\\trabalhov01\\corpo1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -36,7 +40,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAF4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T22:45:28.889Z",
               "IsPinned": true,
@@ -45,32 +49,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Form1.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\greze\\Documents\\Meus Proj\\Trabalho Simulador com BD\\TrabalhoV01\\Form1.cs [Projeto]",
+              "RelativeToolTip": "..\\..\\Trabalho Simulador com BD\\TrabalhoV01\\Form1.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:14:34.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PersistenciaMySql.cs",
               "DocumentMoniker": "C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\PersistenciaMySql.cs",
               "RelativeDocumentMoniker": "PersistenciaMySql.cs",
               "ToolTip": "C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\PersistenciaMySql.cs",
               "RelativeToolTip": "PersistenciaMySql.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T13:15:05.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T13:15:05.25Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Universo.cs",
               "DocumentMoniker": "C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\Universo.cs",
               "RelativeDocumentMoniker": "Universo.cs",
               "ToolTip": "C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\Universo.cs",
               "RelativeToolTip": "Universo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAjwEsAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T14:35:54.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T14:35:54.665Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Corpo1.cs",
               "DocumentMoniker": "C:\\Users\\greze\\Documents\\Meus Proj\\Simulador_Gravitacional\\TrabalhoV01\\Corpo1.cs",
               "RelativeDocumentMoniker": "Corpo1.cs",
@@ -78,8 +91,7 @@
               "RelativeToolTip": "Corpo1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T14:34:39.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T14:34:39.675Z"
             }
           ]
         }
